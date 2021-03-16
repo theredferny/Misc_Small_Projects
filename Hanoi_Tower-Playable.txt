@@ -1,0 +1,22 @@
+Hanoi Tower
+
+Define the rods and the number of the disks
+Define the destination rod where the tower
+will be built
+
+The user chooses from which rod he wants
+to pick a disk
+The user chooses to which rod the disk
+will be transported
+Pick the top disk from the rod
+Move the disk to the top of said rod
+Check if the tower challenge is complete
+If it is: display a victory message
+If it isn't: the process starts all over
+again
+
+The disk to be picked need to be the top
+one in the rod
+The disk to be transported need to be
+smaller than the top disk of the
+destination rod
