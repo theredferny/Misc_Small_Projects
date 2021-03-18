@@ -4,29 +4,95 @@ rod_1 = []
 rod_2 = []
 rod_3 = []
 
+first_starting_message = """
+╔══════════════════════════════════════════════════════════════════════════╗
+║                 ╔═════════════════════════════════════╗                  ║
+║                 ║                                     ║                  ║
+║                 ║  █   █   ███   █   █  █████  █████  ║                  ║
+║                 ║  █   █  █   █  ██  █  █   █    █    ║                  ║
+║                 ║  █████  █████  █ █ █  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █  ██  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █   █  █████  █████  ║                  ║
+║                 ╠═════════════════════════════════════╣                  ║
+║                 ║       |          |          |       ║                  ║
+║                 ║      ▓|▓         |          |       ║                  ║
+║                 ║     ▓▓|▓▓        |          |       ║                  ║
+║                 ║    ▓▓▓|▓▓▓       |          |       ║                  ║
+║                 ║   ▓▓▓▓|▓▓▓▓      |          |       ║                  ║
+║                 ║‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾║                  ║
+║                 ╚═════════════════════════════════════╝                  ║
+╚══════════════════════════════════════════════════════════════════════════╝
+"""
 starting_message = {'en': """
-        Hello, future builder.
-        In this game you will be able to solve the Hanoi Tower Challenge.
-        Your objective is to move all disks from the first rod to the third one.
-        The rules are pretty simple:
-        - Only one disk can be moved at each time
-        - Only the the top disk can be moved
-        - Only smaller disks can rest on the top of the bigger ones
-        See? That's everything you need to start building your own tower!
-        Good luck!
-
-        """, 'pt': """
-        Olá, futuro construtor.
-        Nesse jogo você será capaz de resolver o Desafio da Torre de Hanoi.
-        Seu objetivo é mover todos os discos da primeira estrutura para a terceira.
-        As regras são bem simples:
-        - Apenas um disco pode ser movido por vez;
-        - Apenas o disco no topo pode ser movido;
-        - Apenas discos menores podem ser colocados sobre discos maiores.
-        Viu? Isso é tudo que você precisa saber para começar a construir a sua própria torre!
-        Boa sorte!
-
+╔══════════════════════════════════════════════════════════════════════════╗
+║                 ╔═════════════════════════════════════╗                  ║
+║                 ║                                     ║                  ║
+║                 ║  █   █   ███   █   █  █████  █████  ║                  ║
+║                 ║  █   █  █   █  ██  █  █   █    █    ║                  ║
+║                 ║  █████  █████  █ █ █  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █  ██  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █   █  █████  █████  ║                  ║
+║                 ╠═════════════════════════════════════╣                  ║
+║                 ║       |          |          |       ║                  ║
+║                 ║      ▓|▓         |          |       ║                  ║
+║                 ║     ▓▓|▓▓        |          |       ║                  ║
+║                 ║    ▓▓▓|▓▓▓       |          |       ║                  ║
+║                 ║   ▓▓▓▓|▓▓▓▓      |          |       ║                  ║
+║                 ║‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾║                  ║
+║                 ╚═════════════════════════════════════╝                  ║
+║                                                                          ║
+║                          Hello, future builder.                          ║
+║     In this game you will be able to solve the Hanoi Tower Challenge.    ║
+║     Your objective is to move all disks from one rod to another.         ║
+║                       The rules are pretty simple:                       ║
+║       - Only one disk can be moved at each time                          ║
+║       - Only the the top disk can be moved                               ║
+║       - Only smaller disks can rest on the top of the bigger ones        ║
+║     See? That's everything you need to start building your own tower!    ║
+║                               Good luck!                                 ║
+╚══════════════════════════════════════════════════════════════════════════╝
+        """,
+        'pt': """
+╔══════════════════════════════════════════════════════════════════════════╗
+║                 ╔═════════════════════════════════════╗                  ║
+║                 ║                                     ║                  ║
+║                 ║  █   █   ███   █   █  █████  █████  ║                  ║
+║                 ║  █   █  █   █  ██  █  █   █    █    ║                  ║
+║                 ║  █████  █████  █ █ █  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █  ██  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █   █  █████  █████  ║                  ║
+║                 ╠═════════════════════════════════════╣                  ║
+║                 ║       |          |          |       ║                  ║
+║                 ║      ▓|▓         |          |       ║                  ║
+║                 ║     ▓▓|▓▓        |          |       ║                  ║
+║                 ║    ▓▓▓|▓▓▓       |          |       ║                  ║
+║                 ║   ▓▓▓▓|▓▓▓▓      |          |       ║                  ║
+║                 ║‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾║                  ║
+║                 ╚═════════════════════════════════════╝                  ║
+║                                                                          ║
+║                          Olá, futuro construtor.                         ║
+║    Nesse jogo você será capaz de resolver o Desafio da Torre de Hanoi.   ║
+║    Seu objetivo é mover todos os discos de uma estrutura para a outra.   ║
+║                        As regras são bem simples:                        ║
+║       - Apenas um disco pode ser movido por vez;                         ║
+║       - Apenas o disco no topo pode ser movido;                          ║
+║       - Apenas discos menores podem ser colocados sobre discos maiores.  ║
+║    Viu? Isso é tudo que precisa saber para construir a sua torre!        ║
+║                                 Boa sorte!                               ║
+╚══════════════════════════════════════════════════════════════════════════╝
         """}
+hanoi_logo = """
+╔══════════════════════════════════════════════════════════════════════════╗
+║                 ╔═════════════════════════════════════╗                  ║
+║                 ║                                     ║                  ║
+║                 ║  █   █   ███   █   █  █████  █████  ║                  ║
+║                 ║  █   █  █   █  ██  █  █   █    █    ║                  ║
+║                 ║  █████  █████  █ █ █  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █  ██  █   █    █    ║                  ║
+║                 ║  █   █  █   █  █   █  █████  █████  ║                  ║
+║                 ╚═════════════════════════════════════╝                  ║
+╚══════════════════════════════════════════════════════════════════════════╝
+"""
 starting_input = {'en': 'How many disks will your tower have? Choose between 2 and 9: ',
                   'pt': 'Quantos discos sua torre terá? Escolha entre 2 e 9: '}
 checkup_message = {'en': 'So far, your building site is:',
@@ -35,12 +101,22 @@ value_error = {'en': 'But that\'s not math! Try again using numbers this time!',
                'pt': 'Mas isso não é matemática! Tente de novo usando números dessa vez.'}
 size_too_small = {'en': 'Too small, have you tried to play Hanoi House instead? Try again.',
                   'pt': 'Pequena demais, já tentou jogar Casa Hanoi em vez disso? Tente de novo'}
-size_too_big = {'en': 'But that would take {} movements to solve! Try again, don\'t be so greedy.',
-                'pt': 'Mas isso levaria {} movimentos para resolver! Tente de novo, não seja tão gananciose.'}
+too_many_moves = {'en': """
+That number is just too big. 
+Our calculators said that they\'re done with math and are gonna study philosophy now, 
+so you better start calculating your own numbers.""",
+                  'pt': """
+Esse número é grande demais. 
+Nossas calculadoras disseram que desistiram da matemática e vão estudar filosofia agora,
+então é melhor começar a fazer as suas próprias contas."""}
+size_too_big = {'en': 'But that would take {n} movements to solve! Try again, don\'t be so greedy.',
+                'pt': 'Mas isso levaria {n} movimentos para resolver! Tente de novo, não seja tão gananciose.'}
+size_really_too_big = {'en': 'But that would take {:.2e} movements to solve! Try again, don\'t be so greedy.',
+                       'pt': 'Mas isso levaria {:.2e} movimentos para resolver! Tente de novo, não seja tão gananciose.'}
 source_input = {'en': 'Choose a rod (1, 2 or 3) from which the disk will be taken: ',
-                'pt': 'Escolha uma estrutura (1, 2 ou 3) para retirar o disco.'}
+                'pt': 'Escolha uma estrutura (1, 2 ou 3) para retirar o disco: '}
 destination_input = {'en': 'Choose a rod (1, 2 or 3) to which the disk will be added: ',
-                     'pt': 'Escolha uma estrutura (1, 2 ou 3) para adicionar o disco.'}
+                     'pt': 'Escolha uma estrutura (1, 2 ou 3) para adicionar o disco: '}
 input_not_in_dict = {'en': 'Are you sure this tower is located here, friend? '
                            'Choose one of the rods that you see.',
                      'pt': 'Você tem certeza de que essa estrutura existe aqui, companheire? '
@@ -57,20 +133,32 @@ def cls():
     system('cls' if name == 'nt' else 'clear')
     return
 
+cls()
+print(first_starting_message)
 
 while True:
     print("""Please choose a language/Escolha a lingua:
             1. English
             2. Português""")
-    lang = int(input('Select a number/Selecione um número: '))
+    try:
+        lang = int(input('Select a number/Selecione um número: '))
+    except ValueError:
+        cls()
+        print(first_starting_message)
+        print('Answer with 1 or 2. Try again.\nAs respostas só podem ser 1 ou 2. Tente de novo.')
+        continue
+
     if lang == 1:
         lang = 'en'
+        cls()
         break
     elif lang == 2:
         lang = 'pt'
+        cls()
         break
     else:
         cls()
+        print(first_starting_message)
         print('Answer with 1 or 2. Try again.\nAs respostas só podem ser 1 ou 2. Tente de novo.')
         continue
 
@@ -82,17 +170,30 @@ while True:  # loop to generate the starting tower size accordingly to the user 
         starting_size = int(input(starting_input[lang]))
     except ValueError:  # makes sure the input is a number
         cls()
+        print(starting_message[lang])
         print(value_error[lang])
         continue
 
     if 2 > starting_size:
         cls()
+        print(starting_message[lang])
         print(size_too_small[lang])
         continue
-    elif starting_size > 11:
+    elif starting_size > 100:
         cls()
-        print(size_too_big[lang])
+        print(starting_message[lang])
+        print(too_many_moves[lang])
         continue
+    elif starting_size > 9:
+        cls()
+        print(starting_message[lang])
+        min_number = 2 ** starting_size - 1
+        if min_number > 1_000_000:
+            print(size_really_too_big[lang].format(min_number))
+            continue
+        else:
+            print(size_too_big[lang].format(n=min_number))
+            continue
     else:  # if the input has satisfied all the conditions to be a valid tower size
         break
 
@@ -104,7 +205,7 @@ rod_numbers = {'1': rod_1, '2': rod_2, '3': rod_3}  # associate rod numbers with
 
 def tower_art():
     spaces_header = ' ' * (1 + starting_size)
-    under_dash = '-' * ((6 * starting_size) + 17)
+    under_dash = '‾' * ((6 * starting_size) + 17)
 
     visual_rod_1 = rod_1[:]
     visual_rod_2 = rod_2[:]
@@ -138,6 +239,7 @@ def tower_art():
 
 while True:
     cls()
+    print(hanoi_logo)
     print(checkup_message[lang])
     tower_art()
 
@@ -148,17 +250,20 @@ while True:
         to_rod = rod_numbers.get(destination)
         if source not in rod_numbers or destination not in rod_numbers:
             cls()
+            print(hanoi_logo)
             print(checkup_message[lang])
             tower_art()
             print(input_not_in_dict[lang])
         elif not from_rod:  # checks if the rod is empty
             cls()
+            print(hanoi_logo)
             print(checkup_message[lang])
             tower_art()
             print(empty_rod[lang])
             continue
         elif to_rod != [] and from_rod[-1] > to_rod[-1]:  # checks if the disks respect the size rule
             cls()
+            print(hanoi_logo)
             print(checkup_message[lang])
             tower_art()
             print(what_goes_where[lang])
@@ -169,6 +274,7 @@ while True:
             break
 
     if rod_3 == complete_rod:  # checks if the game is won and breaks the loop
+        print(hanoi_logo)
         print(victory_message[lang])
         tower_art()
         break
